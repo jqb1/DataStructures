@@ -13,6 +13,28 @@
 
 #ifndef TABLE_H
 #define TABLE_H
+class Table{
+public:
+    int *tablePointer;
+    int tableSize;
+    
+    Table();
+    ~Table();
+    
+    void addHead(int value);
+    void addTail(int value);
+    void addAnywhere(int value,int index);
+    
+    void deleteHead();
+    void deleteTail();
+    void deleteAnywhere(int index);
+    
+    void showTable();
+    bool ifExist(int value);
+    
+   
+    
+};
 
 
 

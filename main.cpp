@@ -10,8 +10,9 @@
  *
  * Created on 31 March 2018, 12:06
  */
-
+#include <iostream>
 #include <cstdlib>
+#include "Test.h"
 
 using namespace std;
 
@@ -19,7 +20,9 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-
+    Test test;
+    test.tableTest();
+   
     return 0;
 }
 
