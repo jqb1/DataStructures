@@ -15,13 +15,13 @@
 #define LIST_H
 #include <iostream>
 
-struct listElement{
+
+class List{
+    struct listElement{
         int value;
         listElement *next;
         
     };
-class List{
-    
 public:
 //    single list  element structure
     

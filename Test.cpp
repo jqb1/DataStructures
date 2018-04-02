@@ -110,6 +110,7 @@ void Test::listTest(){
     
     while(choice!=0){
     cout<<"Choose action for list: \n"
+        <<"0.Exit\n"
         <<"1.Add head\n"
         <<"2.Add tail\n"
         <<"3.Add anywhere\n"
@@ -145,20 +146,20 @@ void Test::listTest(){
         {
             cout<<"Set value to add\n";
             cin>>value;
-            cout<<"Choose index in table for new value\n";
+            cout<<"Choose index in list for new value\n";
             cin>>index;
             list.addAnywhere(value,index);
-            cout<<"\n   -------value has been added-------  \n ";
+            
             break;
 
 
         }
-//        case 4:
-//        {
-//            list.deleteHead();
-//            cout<<"-------\nHead has been deleted!-------\n";
-//            break;
-//        }
+        case 4:
+        {
+            list.deleteHead();
+            cout<<"-------\nHead has been deleted!-------\n";
+            break;
+        }
 //        case 5:
 //        {
 //            list.deleteTail();

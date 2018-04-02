@@ -20,14 +20,17 @@ List::~List(){
 
 void List::addHead(int value){
     listElement *temp=new listElement;
+    temp->value=value; 
     if(head==nullptr){
+       //when adding first element next is null
+       temp->next=nullptr;
        head=temp;
        tail=temp;
        temp=nullptr;
        listSize++;
     }
     else{
-        temp->value=value;
+        
 //    next element will be a current head 
         temp->next=head;
 //    reset head after addition
@@ -63,10 +66,10 @@ void List::addTail(int value){
 void List:: addAnywhere(int value,int index){
     if(index<0 || index>listSize){
         cout<<"Wrong index - list out of bounds";
+        cout<<"\n   -------value has NOT been added-------  \n ";
     }
     else{
         listElement *temp=new listElement;
-        listElement *before=new listElement;
         listElement *current=new listElement;
         
         temp->value=value;
@@ -75,24 +78,38 @@ void List:: addAnywhere(int value,int index){
         current=head;
 //      iterate through all the list elements and stop on index-1 position
         for(int i=1;i<index;i++){
-            before=current;
             current=current->next;
 //          check later if before->next works!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
 //        now current element is pointing at element with index-1
-        
-//        before->next=temp;
-//        temp->next=current;
-        
+//        set next pointer for new element
         temp->next=current->next;
         current->next=temp;
+        cout<<"\n   -------value has been added-------  \n ";
     }
 }
     
-//void List::deleteHead();
-//void List::deleteTail();
-//void List::deleteAnywhere(int index);
-//    
+void List::deleteHead(){
+    if(head==nullptr){
+        cout<<"cannot delete head - list is empty\n";
+    }
+    else{
+        listElement *temp = new listElement;
+        temp=head;
+        head=head->next;
+        delete temp;
+        
+        listSize--;
+       
+    }
+}
+void List::deleteTail(){
+    
+}
+void List::deleteAnywhere(int index){
+    
+}
+   
 void List:: showList(){
     int counter=0;
     
