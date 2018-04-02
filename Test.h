@@ -12,6 +12,7 @@ class Test{
 public:
     
     void tableTest();
+    void listTest();
 };
 
 

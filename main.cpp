@@ -21,8 +21,24 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     Test test;
-    test.tableTest();
-   
+    int choice=0;
+//    cout<<"Choose structure you want to test:\n"
+//        <<"1.table\n"
+//        <<"2.list\n";
+//    cin>>choice;
+//    switch(choice){
+//        case 1:
+//        {
+//            test.tableTest();
+//            break;
+//        }
+//        case 2:
+//        {
+//            test.listTest();
+//            break;
+//        }
+//    }
+    test.listTest();
     return 0;
 }
 

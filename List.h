@@ -15,13 +15,35 @@
 #define LIST_H
 #include <iostream>
 
-
+struct listElement{
+        int value;
+        listElement *next;
+        
+    };
 class List{
-    struct list{
-    int key=;
-    list *next;
     
-    }
+public:
+//    single list  element structure
+    
+//    list class contains information of head and tail of the elements
+    listElement *head,*tail;
+    int listSize;
+    
+    List();
+    ~List();
+    
+    void addHead(int value);
+    void addTail(int value);
+    void addAnywhere(int value,int index);
+    
+    void deleteHead();
+    void deleteTail();
+    void deleteAnywhere(int index);
+    
+    void showList();
+    bool ifExist(int value);
+    
+
 };
 
 

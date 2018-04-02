@@ -5,6 +5,7 @@
  */
 #include "Test.h"
 #include "Table.h"
+#include "List.h"
 #include <iostream>
 
 using namespace std;
@@ -24,7 +25,7 @@ void Test::tableTest(){
         <<"5.Delete tail\n"
         <<"6.Delete anywhere\n"
         <<"7.Print table\n"
-        <<"8.Check if element exist";
+        <<"8.Check if element exist\n";
     cin>>choice;
     
     switch(choice){
@@ -55,7 +56,7 @@ void Test::tableTest(){
             cout<<"Choose index in table for new value\n";
             cin>>index;
             table.addAnywhere(value,index);
-            cout<<"\nvalue has been added";
+            cout<<"\n   -------value has been added-------   ";
             break;
 
 
@@ -63,18 +64,18 @@ void Test::tableTest(){
         case 4:
         {
             table.deleteHead();
-            cout<<"Head has been deleted!\n";
+            cout<<"-------\nHead has been deleted!-------\n";
             break;
         }
         case 5:
         {
             table.deleteTail();
-            cout<<"Tail has been deleted\n";
+            cout<<"-------\nTail has been deleted-------\n";
             break;
         }
         case 6:
         {
-            cout<<"Choose index of deleted value\n";
+            cout<<"\nChoose index of deleted value\n";
             cin>>index;
             table.deleteAnywhere(index);
             break;
@@ -88,7 +89,10 @@ void Test::tableTest(){
         {
             cout<<"Type value to find\n";
             cin>>value;
-            table.ifExist(value);
+            if(table.ifExist(value))
+                cout<<"Value exists";
+            else
+                cout<<"Value doesn't exist in table";
             break;
         }
         default:
@@ -97,3 +101,96 @@ void Test::tableTest(){
     }
     }
 }
+
+void Test::listTest(){
+    int choice;
+    int value;
+    int index=0;
+    List list;
+    
+    while(choice!=0){
+    cout<<"Choose action for list: \n"
+        <<"1.Add head\n"
+        <<"2.Add tail\n"
+        <<"3.Add anywhere\n"
+        <<"4.Delete head\n"
+        <<"5.Delete tail\n"
+        <<"6.Delete anywhere\n"
+        <<"7.Print List\n"
+        <<"8.Check if element exist\n";
+    cin>>choice;
+    
+    switch(choice){
+            
+        case 0:
+        {
+            break;
+        }
+        case 1:
+        {
+            
+            cout<<"Set value to add\n";
+            cin>>value;
+            list.addHead(value);
+            break;
+        }
+        case 2:
+        {
+            cout<<"Set value to add\n";
+            cin>>value;
+            list.addTail(value);
+            break;
+        }
+        case 3:
+        {
+            cout<<"Set value to add\n";
+            cin>>value;
+            cout<<"Choose index in table for new value\n";
+            cin>>index;
+            list.addAnywhere(value,index);
+            cout<<"\n   -------value has been added-------  \n ";
+            break;
+
+
+        }
+//        case 4:
+//        {
+//            list.deleteHead();
+//            cout<<"-------\nHead has been deleted!-------\n";
+//            break;
+//        }
+//        case 5:
+//        {
+//            list.deleteTail();
+//            cout<<"-------\nTail has been deleted-------\n";
+//            break;
+//        }
+//        case 6:
+//        {
+//            cout<<"\nChoose index of deleted value\n";
+//            cin>>index;
+//            list.deleteAnywhere(index);
+//            break;
+//        }
+        case 7:
+        {
+            list.showList();
+            break;
+        }
+//        case 8:
+//        {
+//            cout<<"Type value to find\n";
+//            cin>>value;
+//            if(list.ifExist(value))
+//                cout<<"Value exists";
+//            else
+//                cout<<"Value doesn't exist in table";
+//            break;
+//        }
+//        default:
+//            cout<<"wrong choice!\n";
+//            break;
+    }
+    }
+}
+    
