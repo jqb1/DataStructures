@@ -138,15 +138,40 @@ void List::deleteTail(){
     }
 }
 void List::deleteAnywhere(int index){
-    if(index<0 || index>listSize){
+    if(index<0 || index>=listSize){
         cout<<"Wrong index - list out of bounds";
         cout<<"\n   -------value has NOT been added-------  \n ";
     }
+//    if only one element in list, delete it and set head & tail to null
+    if(index==0 && head->next ==nullptr){
+        delete head;
+        head=nullptr;
+        tail=nullptr;
+        listSize--;
+
+    }
+//    
+    else if(index==0 && head->next!=nullptr){
+//       if user choose to delete head and head is not the last element 
+        this->deleteHead();
+    
+    }
     else{
-        listElement *temp=new listElement;
+        listElement *before=new listElement;
         listElement *current=new listElement;
+        
+        current=head;
+        for(int i=1;i<=index;i++){
+            before = current;
+            current=before->next;
+        }
+        before->next=current->next;
+        delete current; // ?? ? ? 
+        listSize--;
+       
     }
 }
+
    
 void List:: showList(){
     int counter=0;
@@ -157,9 +182,21 @@ void List:: showList(){
         cout<<"List is empty!\n";
     }
     while(temp!=nullptr){
-        cout<<"List " <<counter<<" ="<<temp->value<<"\n";
+        cout<<"List " <<counter<<" = "<<temp->value<<"\n";
         temp=temp->next;
         counter++;
     }
 }
-//bool List::ifExist(int value);
+bool List::ifExist(int value){
+    listElement *temp = new listElement;
+    temp=head;
+    while(temp!=nullptr){
+        if(temp->value==value)
+            return true;
+        else
+            return false;
+//      after checking set temp pointer to next element
+        temp=temp->next;
+    }
+
+}

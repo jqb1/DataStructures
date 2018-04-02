@@ -166,31 +166,31 @@ void Test::listTest(){
             cout<<"-------\nTail has been deleted-------\n";
             break;
         }
-//        case 6:
-//        {
-//            cout<<"\nChoose index of deleted value\n";
-//            cin>>index;
-//            list.deleteAnywhere(index);
-//            break;
-//        }
+        case 6:
+        {
+            cout<<"\nChoose index of deleted value\n";
+            cin>>index;
+            list.deleteAnywhere(index);
+            break;
+        }
         case 7:
         {
             list.showList();
             break;
         }
-//        case 8:
-//        {
-//            cout<<"Type value to find\n";
-//            cin>>value;
-//            if(list.ifExist(value))
-//                cout<<"Value exists";
-//            else
-//                cout<<"Value doesn't exist in table";
-//            break;
-//        }
-//        default:
-//            cout<<"wrong choice!\n";
-//            break;
+        case 8:
+        {
+            cout<<"Type value to find\n";
+            cin>>value;
+            if(list.ifExist(value))
+                cout<<"Value exists";
+            else
+                cout<<"Value doesn't exist in table";
+            break;
+        }
+        default:
+            cout<<"wrong choice!\n";
+            break;
     }
     }
 }
