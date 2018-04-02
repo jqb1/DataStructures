@@ -140,6 +140,9 @@ void Table::deleteAnywhere(int index){
             }
            
         }
+        delete tablePointer;
+        tablePointer=newTable;
+        tableSize--;
         
     }
 }

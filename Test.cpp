@@ -160,12 +160,12 @@ void Test::listTest(){
             cout<<"-------\nHead has been deleted!-------\n";
             break;
         }
-//        case 5:
-//        {
-//            list.deleteTail();
-//            cout<<"-------\nTail has been deleted-------\n";
-//            break;
-//        }
+        case 5:
+        {
+            list.deleteTail();
+            cout<<"-------\nTail has been deleted-------\n";
+            break;
+        }
 //        case 6:
 //        {
 //            cout<<"\nChoose index of deleted value\n";

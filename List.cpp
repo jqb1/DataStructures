@@ -79,19 +79,19 @@ void List:: addAnywhere(int value,int index){
 //      iterate through all the list elements and stop on index-1 position
         for(int i=1;i<index;i++){
             current=current->next;
-//          check later if before->next works!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
 //        now current element is pointing at element with index-1
 //        set next pointer for new element
         temp->next=current->next;
         current->next=temp;
         cout<<"\n   -------value has been added-------  \n ";
+        listSize++;
     }
 }
     
 void List::deleteHead(){
     if(head==nullptr){
-        cout<<"cannot delete head - list is empty\n";
+        cout<<"\ncannot delete head - list is empty\n";
     }
     else{
         listElement *temp = new listElement;
@@ -104,10 +104,48 @@ void List::deleteHead(){
     }
 }
 void List::deleteTail(){
-    
+    if(head==nullptr){
+        cout<<"\ncannot delete tail - list is empty\n";
+    }
+    else{
+        
+        listElement *before=new listElement;
+        listElement *current=new listElement;
+        
+        current=head;
+//        if only one element in list delete head and set head, tail to null
+        if(current->next==nullptr){
+            delete current;
+            head=nullptr;
+            tail=nullptr;
+            listSize--;
+        }
+        else{
+        
+//      set pointer on last element and remember one element before 
+            while(current->next !=nullptr){
+                before=current;
+                current=before->next;  
+            }
+//      delete last element
+            delete current;
+
+            before->next=nullptr;
+            tail=before;
+            listSize--;
+        }
+
+    }
 }
 void List::deleteAnywhere(int index){
-    
+    if(index<0 || index>listSize){
+        cout<<"Wrong index - list out of bounds";
+        cout<<"\n   -------value has NOT been added-------  \n ";
+    }
+    else{
+        listElement *temp=new listElement;
+        listElement *current=new listElement;
+    }
 }
    
 void List:: showList(){
@@ -115,6 +153,9 @@ void List:: showList(){
     
     listElement *temp = new listElement;
     temp=head;
+    if(temp==nullptr){
+        cout<<"List is empty!\n";
+    }
     while(temp!=nullptr){
         cout<<"List " <<counter<<" ="<<temp->value<<"\n";
         temp=temp->next;

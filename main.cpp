@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
 //            break;
 //        }
 //    }
-    test.listTest();
+    test.tableTest();
     return 0;
 }
 
