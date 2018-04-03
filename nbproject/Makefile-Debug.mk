@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Heap.o \
 	${OBJECTDIR}/List.o \
 	${OBJECTDIR}/Table.o \
 	${OBJECTDIR}/Test.o \
@@ -65,6 +66,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/datastructures.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/datastructures ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/Heap.o: Heap.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Heap.o Heap.cpp
 
 ${OBJECTDIR}/List.o: List.cpp
 	${MKDIR} -p ${OBJECTDIR}

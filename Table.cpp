@@ -35,7 +35,7 @@ void Table::addHead(int value){
     tableSize++;     
 }
 void Table::addTail(int value){
-    //new Table of pointers
+    //create Table of pointers
     int *newTable=new int[tableSize+1];
     //adding tail to new table
     newTable[tableSize]=value;
@@ -148,16 +148,20 @@ void Table::deleteAnywhere(int index){
 }
 void Table::showTable(){
     for(int i=0;i<tableSize;i++){
-        cout<<"Tab["<<i<<"]="<<tablePointer[i];   
+        cout<<"Tab["<<i<<"]="<<tablePointer[i]<<"\t";   
     }
 }
 bool Table::ifExist(int value){
+    bool exist=false;
     for(int i=0;i<tableSize;i++){
-        if(tablePointer[i]==value)
-            return true;
+        if(tablePointer[i]==value){
+            exist=true;
+            break;
+        }
         else
-            return false;
+            exist=false;
     }
+    return exist;
 
 }
         

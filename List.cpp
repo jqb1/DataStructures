@@ -188,15 +188,17 @@ void List:: showList(){
     }
 }
 bool List::ifExist(int value){
+    bool exist=false;
     listElement *temp = new listElement;
     temp=head;
     while(temp!=nullptr){
         if(temp->value==value)
             return true;
         else
-            return false;
+            exist=false;
 //      after checking set temp pointer to next element
         temp=temp->next;
     }
+    return exist;
 
 }

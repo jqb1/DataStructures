@@ -13,6 +13,8 @@ public:
     
     void tableTest();
     void listTest();
+    void heapTest();
+    
 };
 
 

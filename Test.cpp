@@ -6,18 +6,19 @@
 #include "Test.h"
 #include "Table.h"
 #include "List.h"
+#include "Heap.h"
 #include <iostream>
 
 using namespace std;
         
 void Test::tableTest(){
-    int choice;
+    int choice=0;
     int value=0;
     int index=0;
     Table table;
     
-    while(choice!=0){
-    cout<<"Choose action for table: \n"
+    while(choice!=9){
+    cout<<"\nChoose action for table: \n"
         <<"1.Add head\n"
         <<"2.Add tail\n"
         <<"3.Add anywhere\n"
@@ -25,12 +26,13 @@ void Test::tableTest(){
         <<"5.Delete tail\n"
         <<"6.Delete anywhere\n"
         <<"7.Print table\n"
-        <<"8.Check if element exist\n";
+        <<"8.Check if element exist\n"
+        <<"9.Exit\n";
     cin>>choice;
     
     switch(choice){
             
-        case 0:
+        case 9:
         {
             break;
         }
@@ -103,14 +105,13 @@ void Test::tableTest(){
 }
 
 void Test::listTest(){
-    int choice;
-    int value;
+    int choice=0;
+    int value=0;
     int index=0;
     List list;
     
-    while(choice!=0){
-    cout<<"Choose action for list: \n"
-        <<"0.Exit\n"
+    while(choice!=9){
+    cout<<"\nChoose action for list: \n"
         <<"1.Add head\n"
         <<"2.Add tail\n"
         <<"3.Add anywhere\n"
@@ -118,12 +119,13 @@ void Test::listTest(){
         <<"5.Delete tail\n"
         <<"6.Delete anywhere\n"
         <<"7.Print List\n"
-        <<"8.Check if element exist\n";
+        <<"8.Check if element exist\n"
+        <<"9.Exit\n";
     cin>>choice;
     
     switch(choice){
             
-        case 0:
+        case 9:
         {
             break;
         }
@@ -183,9 +185,9 @@ void Test::listTest(){
             cout<<"Type value to find\n";
             cin>>value;
             if(list.ifExist(value))
-                cout<<"Value exists";
+                cout<<"\nValue exists\n";
             else
-                cout<<"Value doesn't exist in table";
+                cout<<"\nValue doesn't exist in list\n";
             break;
         }
         default:
@@ -194,4 +196,54 @@ void Test::listTest(){
     }
     }
 }
+void Test::heapTest(){
+    int choice=0;
+    int value=0;
+    int index=0;
+    Heap heap;
+    
+    while(choice!=9){
+    cout<<"\nChoose action for heap: \n"
+        <<"1.Add to heap\n"
+        <<"2.Delete from heap\n"
+        <<"3.Print heap\n"
+        <<"4.Check if element exist\n"
+        <<"5.Exit\n";
+    cin>>choice;
+        
+    switch(choice){
+        case 1:
+            cout<<"Type value which you want to add to heap:";
+            cin>>value;
+            heap.addToHeap(value);
+            break;
+        case 2:
+            cout<<"Type value which you want to delete from heap: ";
+            cin>>value;
+            heap.deleteFromHeap(value);
+            break;
+        case 3:
+            heap.showHeap();
+            break;
+        case 4:
+            cout<<"Type value to check:";
+            cin>>value;
+            if(heap.ifExist(value))
+                cout<<"\nValue exist in heap!\n";
+            else
+                cout<<"\nValue doesn't exist in heap!\n";
+            break;
+        case 5:
+            break;
+        default:
+            cout<<"Wrong choice!";
+            break;
+       
+    }
+        
+        
+        
+    }
+}
+
     

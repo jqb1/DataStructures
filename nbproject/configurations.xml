@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Heap.h</itemPath>
       <itemPath>List.h</itemPath>
       <itemPath>Table.h</itemPath>
       <itemPath>Test.h</itemPath>
@@ -16,6 +17,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Heap.cpp</itemPath>
       <itemPath>List.cpp</itemPath>
       <itemPath>Table.cpp</itemPath>
       <itemPath>Test.cpp</itemPath>
@@ -44,6 +46,10 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="Heap.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Heap.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="List.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
@@ -83,6 +89,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Heap.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Heap.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="List.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">

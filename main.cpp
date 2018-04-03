@@ -22,9 +22,26 @@ using namespace std;
 int main(int argc, char** argv) {
     Test test;
     int pick=0;
-    
-    test.listTest();
-
+    cout<<"Choose data structure:\n"
+        <<"1.Table\n"
+        <<"2.List\n"
+        <<"3.Heap\n";
+    cin>>pick;
+    switch(pick){
+        case 1:
+            cout<<"table test";
+            test.tableTest();
+            break;
+        case 2:
+            cout<<"list test";
+            test.listTest();
+            break;
+        case 3:
+            test.heapTest();
+        default:
+            cout<<"Wrong number";
+            break;
+    }
     return 0;
 }
 
