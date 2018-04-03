@@ -19,7 +19,8 @@ Heap::~Heap(){
     }
 }
 void Heap::addToHeap(int value){
-//  check if value is on heap. value in heap can't repeat 
+//  check if value is on heap. Don't add if value exist
+//  that's only for testing purpose (don't want heap to have 1000 nodes with the same value)
     bool exist=ifExist(value);
 
     if(!exist){
@@ -51,13 +52,14 @@ void Heap::deleteFromHeap(int value){
             valueIndex=i;
         }
 //      don't change position of elements before deleted element
-        if(valueIndex=-1 || i<valueIndex){
+        if(valueIndex==-1){
             newTable[i]=heapPointer[i]; 
         }
 //      move elements by one position after deleting value
-        if(i>=valueIndex){
-            newTable[i]=heapPointer[i-1];
+        if(i>=valueIndex && valueIndex!=-1){
+            newTable[i]=heapPointer[i+1];
         }
+    }
 //      change table pointer
         delete heapPointer;
         heapPointer=newTable;
@@ -65,7 +67,7 @@ void Heap::deleteFromHeap(int value){
             heapSize--;
         }
         
-    }
+    
     
 }
 void Heap::rebuildHeap(){

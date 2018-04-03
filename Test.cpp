@@ -202,7 +202,7 @@ void Test::heapTest(){
     int index=0;
     Heap heap;
     
-    while(choice!=9){
+    while(choice!=5){
     cout<<"\nChoose action for heap: \n"
         <<"1.Add to heap\n"
         <<"2.Delete from heap\n"
