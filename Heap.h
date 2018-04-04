@@ -28,8 +28,11 @@ public:
     
     void showHeap();
     
-    void rebuildHeap();
+    void rebuildHeapAfterDeletion();
+    void rebuildHeapAfterAdding(int added);
     bool ifExist(int value);
+    
+    int getParent(int index);
 };
 
 

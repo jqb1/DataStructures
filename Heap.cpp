@@ -37,6 +37,8 @@ void Heap::addToHeap(int value){
         delete heapPointer;
         heapPointer=newTable;
         heapSize++;
+        //check new element (last in new table)
+        this->rebuildHeapAfterAdding(heapSize-1);
     }
     else{
         cout<<"\n------Cannot add this value because it already exists in heap------\n";
@@ -46,6 +48,7 @@ void Heap::addToHeap(int value){
 void Heap::deleteFromHeap(int value){
     int *newTable=new int[heapSize-1];
     int valueIndex=-1;
+    
 //    search the element in table (heap)
     for(int i=0;i<heapSize;i++){
         if(heapPointer[i]==value){
@@ -60,17 +63,56 @@ void Heap::deleteFromHeap(int value){
             newTable[i]=heapPointer[i+1];
         }
     }
-//      change table pointer
-        delete heapPointer;
-        heapPointer=newTable;
-        if(valueIndex!=-1){
-            heapSize--;
-        }
+    
+    //     change table pointer
+    delete heapPointer;
+    heapPointer=newTable;
+//  if value was found decrement size
+    if(valueIndex!=-1){
+      heapSize--; 
+    }
+    
+    //after changing table and pointer for table, rebuild table to heap
+    this->rebuildHeapAfterDeletion();
         
     
     
 }
-void Heap::rebuildHeap(){
+void Heap::rebuildHeapAfterDeletion(){
+    int parent=-1;
+
+//  iterate through all elements and check their parents
+    for(int i=heapSize-1;i>=0;i--){
+        parent=this->getParent(i);
+        if((heapPointer[i]>heapPointer[parent]) && parent>=0){
+//          change positions of parent and child
+            int temp=heapPointer[parent];
+            heapPointer[parent]=heapPointer[i];
+            heapPointer[i]=temp;
+        }
+    }
+    
+}
+void Heap::rebuildHeapAfterAdding(int added){
+//    check heap starting from the end
+//  set parent of new element
+    int parent=this->getParent(added);
+    
+//  check parent of element and repeat for all parents
+    if(added>=0 && parent>=0&& heapPointer[added]>heapPointer[parent]){
+        int temp=heapPointer[parent];
+        heapPointer[parent]=heapPointer[added];
+        heapPointer[added]=temp;
+        rebuildHeapAfterAdding(parent);
+    }
+}
+int Heap::getParent(int index){
+    int parent=(index-1)/2;
+    if (index==0){
+        return -1;
+    }
+    else
+        return parent;
     
 }
 bool Heap::ifExist(int value){
