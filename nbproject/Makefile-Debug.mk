@@ -35,10 +35,13 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/BigTest.o \
+	${OBJECTDIR}/Generator.o \
 	${OBJECTDIR}/Heap.o \
 	${OBJECTDIR}/List.o \
 	${OBJECTDIR}/Table.o \
 	${OBJECTDIR}/Test.o \
+	${OBJECTDIR}/Timer.o \
 	${OBJECTDIR}/Tree.o \
 	${OBJECTDIR}/main.o
 
@@ -67,6 +70,16 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/datastructures.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/datastructures ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/BigTest.o: BigTest.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BigTest.o BigTest.cpp
+
+${OBJECTDIR}/Generator.o: Generator.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Generator.o Generator.cpp
+
 ${OBJECTDIR}/Heap.o: Heap.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -86,6 +99,11 @@ ${OBJECTDIR}/Test.o: Test.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Test.o Test.cpp
+
+${OBJECTDIR}/Timer.o: Timer.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Timer.o Timer.cpp
 
 ${OBJECTDIR}/Tree.o: Tree.cpp
 	${MKDIR} -p ${OBJECTDIR}

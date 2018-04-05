@@ -11,11 +11,11 @@
 
 using namespace std;
         
-void Test::tableTest(){
+void Test::tableTest(Table table){
     int choice=0;
     int value=0;
     int index=0;
-    Table table;
+    
     
     while(choice!=9){
     cout<<"\nChoose action for table: \n"
@@ -104,11 +104,11 @@ void Test::tableTest(){
     }
 }
 
-void Test::listTest(){
+void Test::listTest(List list){
     int choice=0;
     int value=0;
     int index=0;
-    List list;
+
     
     while(choice!=9){
     cout<<"\nChoose action for list: \n"
@@ -196,11 +196,10 @@ void Test::listTest(){
     }
     }
 }
-void Test::heapTest(){
+void Test::heapTest(Heap heap){
     int choice=0;
     int value=0;
     int index=0;
-    Heap heap;
     
     while(choice!=5){
     cout<<"\nChoose action for heap: \n"
@@ -240,10 +239,8 @@ void Test::heapTest(){
             break;
        
     }
-        
-        
-        
-    }
+         
+   }
 }
 
     

@@ -13,6 +13,8 @@
 #include <iostream>
 #include <cstdlib>
 #include "Test.h"
+#include "Generator.h"
+#include "BigTest.h"
 
 using namespace std;
 
@@ -21,8 +23,17 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     Test test;
+    Generator generator;
+    BigTest big_test;
     int pick=0;
-    cout<<"Choose data structure:\n"
+    int size=0;
+    cout<<"Generate file with random numbers:\n";
+    cout<<"Choose size of file:";
+    cin>>size;
+    
+    generator.makeFile(size);
+
+    cout<<"Choose data structure you want to check:\n"
         <<"1.Table\n"
         <<"2.List\n"
         <<"3.Heap\n";
@@ -30,14 +41,14 @@ int main(int argc, char** argv) {
     switch(pick){
         case 1:
             cout<<"table test";
-            test.tableTest();
+            big_test.tableTest();
             break;
         case 2:
             cout<<"list test";
-            test.listTest();
+            big_test.listTest();
             break;
         case 3:
-            test.heapTest();
+            big_test.heapTest();
             break;
         default:
             cout<<"Wrong number";

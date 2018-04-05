@@ -8,12 +8,16 @@
 
 #ifndef TEST_H
 #define TEST_H
+
+#include "Table.h"
+#include "List.h"
+#include "Heap.h"
 class Test{
 public:
     
-    void tableTest();
-    void listTest();
-    void heapTest();
+    void tableTest(Table table);
+    void listTest(List list);
+    void heapTest(Heap heap);
     
 };
 
