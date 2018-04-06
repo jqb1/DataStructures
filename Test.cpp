@@ -8,6 +8,7 @@
 #include "List.h"
 #include "Heap.h"
 #include <iostream>
+#include <chrono>
 
 using namespace std;
         
@@ -41,14 +42,26 @@ void Test::tableTest(Table table){
             
             cout<<"Set value to add\n";
             cin>>value;
+            auto start = std::chrono::system_clock::now();
+            
             table.addHead(value);
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of adding head to table:"<<fp_ms.count()<<"ms";
             break;
         }
         case 2:
         {
             cout<<"Set value to add\n";
             cin>>value;
+            auto start = std::chrono::system_clock::now();
+            
             table.addTail(value);
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of adding tail to table:"<<fp_ms.count()<<"ms";
             break;
         }
         case 3:
@@ -57,7 +70,13 @@ void Test::tableTest(Table table){
             cin>>value;
             cout<<"Choose index in table for new value\n";
             cin>>index;
+           auto start = std::chrono::system_clock::now();
+            
             table.addAnywhere(value,index);
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of adding to specified place in table:"<<fp_ms.count()<<"ms";
             cout<<"\n   -------value has been added-------   ";
             break;
 
@@ -65,36 +84,67 @@ void Test::tableTest(Table table){
         }
         case 4:
         {
+            auto start = std::chrono::system_clock::now();
+            
             table.deleteHead();
-            cout<<"-------\nHead has been deleted!-------\n";
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of deleting head from table:"<<fp_ms.count()<<"ms";
+            cout<<"\n-------Head has been deleted!-------\n";
             break;
         }
         case 5:
         {
+            auto start = std::chrono::system_clock::now();
+            
             table.deleteTail();
-            cout<<"-------\nTail has been deleted-------\n";
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of deleting tail from table:"<<fp_ms.count()<<"ms";
+            cout<<"\n-------Tail has been deleted-------\n";
             break;
         }
         case 6:
         {
             cout<<"\nChoose index of deleted value\n";
             cin>>index;
-            table.deleteAnywhere(index);
+            auto start = std::chrono::system_clock::now();
+            
+            table.deleteAnywhere(value);
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of deleting specified element from table:"<<fp_ms.count()<<"ms";
             break;
         }
         case 7:
         {
+            auto start = std::chrono::system_clock::now();
+            
             table.showTable();
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of showing table table:"<<fp_ms.count()<<"ms";
             break;
         }
         case 8:
         {
             cout<<"Type value to find\n";
             cin>>value;
+            auto start = std::chrono::system_clock::now();
+            
             if(table.ifExist(value))
                 cout<<"Value exists";
             else
                 cout<<"Value doesn't exist in table";
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of finding value in table:"<<fp_ms.count()<<"ms";
+            
             break;
         }
         default:
@@ -134,14 +184,22 @@ void Test::listTest(List list){
             
             cout<<"Set value to add\n";
             cin>>value;
+        
             list.addHead(value);
+
             break;
         }
         case 2:
         {
             cout<<"Set value to add\n";
             cin>>value;
+            auto start = std::chrono::system_clock::now();
+            
             list.addTail(value);
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of adding tail to list:"<<fp_ms.count()<<"ms";
             break;
         }
         case 3:
@@ -150,7 +208,13 @@ void Test::listTest(List list){
             cin>>value;
             cout<<"Choose index in list for new value\n";
             cin>>index;
+            auto start = std::chrono::system_clock::now();
+            
             list.addAnywhere(value,index);
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of adding element to specified position in list:"<<fp_ms.count()<<"ms";
             
             break;
 
@@ -158,36 +222,66 @@ void Test::listTest(List list){
         }
         case 4:
         {
+            auto start = std::chrono::system_clock::now();
+            
             list.deleteHead();
-            cout<<"-------\nHead has been deleted!-------\n";
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of deleting head from list:"<<fp_ms.count()<<"ms";
+            
+            cout<<"\n-------Head has been deleted!-------\n";
             break;
         }
         case 5:
         {
+            auto start = std::chrono::system_clock::now();
+            
             list.deleteTail();
-            cout<<"-------\nTail has been deleted-------\n";
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of deleting tail from list:"<<fp_ms.count()<<"ms";
+            
+            cout<<"\n-------Tail has been deleted-------\n";
             break;
         }
         case 6:
         {
             cout<<"\nChoose index of deleted value\n";
             cin>>index;
+            auto start = std::chrono::system_clock::now();
+            
             list.deleteAnywhere(index);
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of deleting element from list:"<<fp_ms.count()<<"ms";
             break;
         }
         case 7:
         {
+            auto start = std::chrono::system_clock::now();
+            
             list.showList();
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of showing list:"<<fp_ms.count()<<"ms";
             break;
         }
         case 8:
         {
             cout<<"Type value to find\n";
             cin>>value;
+            auto start = std::chrono::system_clock::now();
             if(list.ifExist(value))
                 cout<<"\nValue exists\n";
             else
                 cout<<"\nValue doesn't exist in list\n";
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of finding value in list:"<<fp_ms.count()<<"ms";
             break;
         }
         default:
@@ -212,31 +306,72 @@ void Test::heapTest(Heap heap){
         
     switch(choice){
         case 1:
-            cout<<"Type value which you want to add to heap:";
+        {
+            auto start = std::chrono::system_clock::now();
             cin>>value;
+            cout<<"Type value which you want to add to heap:";
             heap.addToHeap(value);
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of adding to heap:"<<fp_ms.count()<<"ms";
+            
             break;
+        }
         case 2:
+        {
+            
             cout<<"Type value which you want to delete from heap: ";
             cin>>value;
+            
+            auto start = std::chrono::system_clock::now();
+            
             heap.deleteFromHeap(value);
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of adding to heap:"<<fp_ms.count()<<"ms";
+
             break;
+        }
         case 3:
+        {
+            
+            auto start = std::chrono::system_clock::now();
+            
             heap.showHeap();
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of printing heap:"<<fp_ms.count()<<"ms";
+
             break;
+        }
         case 4:
+        {
             cout<<"Type value to check:";
             cin>>value;
+            
+            auto start = std::chrono::system_clock::now();
             if(heap.ifExist(value))
                 cout<<"\nValue exist in heap!\n";
             else
                 cout<<"\nValue doesn't exist in heap!\n";
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of finding value in heap:"<<fp_ms.count()<<"ms";
+            
+            
             break;
+        }
         case 5:
+        {
             break;
+        }
         default:
+        {
             cout<<"Wrong choice!";
             break;
+        }
        
     }
          

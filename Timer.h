@@ -11,10 +11,3 @@
  * Created on 05 April 2018, 13:56
  */
 
-#ifndef TIMER_H
-#define TIMER_H
-
-
-
-#endif /* TIMER_H */
-

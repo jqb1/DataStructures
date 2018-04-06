@@ -6,7 +6,7 @@
 
 #include "Heap.h"
 #include <iostream>
-
+#include <chrono>
 using namespace std;
 //Treat heap as a table and sort it as a heap
 Heap::Heap(){
@@ -19,33 +19,26 @@ Heap::~Heap(){
     }
 }
 void Heap::addToHeap(int value){
-//  check if value is on heap. Don't add if value exist
-//  that's only for testing purpose (don't want heap to have 1000 nodes with the same value)
-    bool exist=ifExist(value);
-
-    if(!exist){
-        //create table of pointers
-        int *newTable=new int[heapSize+1];
-        //adding tail to new table
-        newTable[heapSize]=value;
-
-        //adding rest to new table
-        for(int i =0;i<heapSize;i++){
-            newTable[i]=heapPointer[i];
-        }
-        //new table pointer is different, need to delete old and set new
-        delete heapPointer;
-        heapPointer=newTable;
-        heapSize++;
-        //check new element (last in new table)
-        this->rebuildHeapAfterAdding(heapSize-1);
-    }
-    else{
-        cout<<"\n------Cannot add this value because it already exists in heap------\n";
-    }
     
+    //create table of pointers
+    int *newTable=new int[heapSize+1];
+    //adding tail to new table
+    newTable[heapSize]=value;
+
+    //adding rest to new table
+    for(int i =0;i<heapSize;i++){
+        newTable[i]=heapPointer[i];
+    }
+    //new table pointer is different, need to delete old and set new
+    delete heapPointer;
+    heapPointer=newTable;
+    heapSize++;
+    //check new element (last in new table)
+    this->rebuildHeapAfterAdding(heapSize-1);
+  
 }
 void Heap::deleteFromHeap(int value){
+    
     int *newTable=new int[heapSize-1];
     int valueIndex=-1;
     
@@ -79,6 +72,7 @@ void Heap::deleteFromHeap(int value){
     
 }
 void Heap::rebuildHeapAfterDeletion(){
+    
     int parent=-1;
 
 //  iterate through all elements and check their parents
@@ -91,6 +85,7 @@ void Heap::rebuildHeapAfterDeletion(){
             heapPointer[i]=temp;
         }
     }
+    
     
 }
 void Heap::rebuildHeapAfterAdding(int added){
@@ -116,6 +111,7 @@ int Heap::getParent(int index){
     
 }
 bool Heap::ifExist(int value){
+   
     bool exist=false;
     for (int i=0;i<heapSize;i++){
 //      if value is found break and return true
@@ -124,12 +120,17 @@ bool Heap::ifExist(int value){
         else
             exist=false;
     }
+   
     return exist;
     
 }
 void Heap::showHeap(){
+    
     for(int i=0;i<heapSize;i++){
         cout<<"heap["<<i<<"]="<<heapPointer[i]<<"\t";   
     }
+  
+   
+    
     
 }
