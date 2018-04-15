@@ -9,6 +9,7 @@
 #include "Heap.h"
 #include <iostream>
 #include <chrono>
+#include "SaveResult.h"
 
 using namespace std;
         
@@ -16,6 +17,7 @@ void Test::tableTest(Table table){
     int choice=0;
     int value=0;
     int index=0;
+    SaveResult resultFile;
     
     
     while(choice!=9){
@@ -49,6 +51,7 @@ void Test::tableTest(Table table){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of adding head to table:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             break;
         }
         case 2:
@@ -62,6 +65,7 @@ void Test::tableTest(Table table){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of adding tail to table:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             break;
         }
         case 3:
@@ -78,6 +82,7 @@ void Test::tableTest(Table table){
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of adding to specified place in table:"<<fp_ms.count()<<"ms";
             cout<<"\n   -------value has been added-------   ";
+            resultFile.saveToFile(fp_ms.count());
             break;
 
 
@@ -92,6 +97,7 @@ void Test::tableTest(Table table){
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of deleting head from table:"<<fp_ms.count()<<"ms";
             cout<<"\n-------Head has been deleted!-------\n";
+            resultFile.saveToFile(fp_ms.count());
             break;
         }
         case 5:
@@ -104,6 +110,7 @@ void Test::tableTest(Table table){
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of deleting tail from table:"<<fp_ms.count()<<"ms";
             cout<<"\n-------Tail has been deleted-------\n";
+            resultFile.saveToFile(fp_ms.count());
             break;
         }
         case 6:
@@ -117,6 +124,7 @@ void Test::tableTest(Table table){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of deleting specified element from table:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             break;
         }
         case 7:
@@ -128,6 +136,7 @@ void Test::tableTest(Table table){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of showing table table:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             break;
         }
         case 8:
@@ -144,6 +153,7 @@ void Test::tableTest(Table table){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of finding value in table:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             
             break;
         }
@@ -158,6 +168,7 @@ void Test::listTest(List list){
     int choice=0;
     int value=0;
     int index=0;
+    SaveResult resultFile;
 
     
     while(choice!=9){
@@ -184,8 +195,14 @@ void Test::listTest(List list){
             
             cout<<"Set value to add\n";
             cin>>value;
-        
+            auto start = std::chrono::system_clock::now();
+            
             list.addHead(value);
+            
+            auto end = std::chrono::system_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = end - start;
+            cout<<"\nTime of adding head to list:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
 
             break;
         }
@@ -200,6 +217,7 @@ void Test::listTest(List list){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of adding tail to list:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             break;
         }
         case 3:
@@ -215,6 +233,7 @@ void Test::listTest(List list){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of adding element to specified position in list:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             
             break;
 
@@ -229,6 +248,7 @@ void Test::listTest(List list){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of deleting head from list:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             
             cout<<"\n-------Head has been deleted!-------\n";
             break;
@@ -242,6 +262,7 @@ void Test::listTest(List list){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of deleting tail from list:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             
             cout<<"\n-------Tail has been deleted-------\n";
             break;
@@ -257,6 +278,7 @@ void Test::listTest(List list){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of deleting element from list:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             break;
         }
         case 7:
@@ -268,6 +290,7 @@ void Test::listTest(List list){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of showing list:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             break;
         }
         case 8:
@@ -282,6 +305,7 @@ void Test::listTest(List list){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of finding value in list:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             break;
         }
         default:
@@ -294,6 +318,7 @@ void Test::heapTest(Heap heap){
     int choice=0;
     int value=0;
     int index=0;
+    SaveResult resultFile;
     
     while(choice!=5){
     cout<<"\nChoose action for heap: \n"
@@ -307,13 +332,15 @@ void Test::heapTest(Heap heap){
     switch(choice){
         case 1:
         {
-            auto start = std::chrono::system_clock::now();
-            cin>>value;
             cout<<"Type value which you want to add to heap:";
+            cin>>value;
+            auto start = std::chrono::system_clock::now();
             heap.addToHeap(value);
+            
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of adding to heap:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             
             break;
         }
@@ -330,6 +357,7 @@ void Test::heapTest(Heap heap){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of adding to heap:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
 
             break;
         }
@@ -343,6 +371,7 @@ void Test::heapTest(Heap heap){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of printing heap:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
 
             break;
         }
@@ -359,6 +388,7 @@ void Test::heapTest(Heap heap){
             auto end = std::chrono::system_clock::now();
             std::chrono::duration<double, std::milli> fp_ms = end - start;
             cout<<"\nTime of finding value in heap:"<<fp_ms.count()<<"ms";
+            resultFile.saveToFile(fp_ms.count());
             
             
             break;

@@ -9,6 +9,7 @@
 #include "List.h"
 #include "Heap.h"
 #include "Test.h"
+#include "SaveResult.h"
 #include <iostream>
 #include <fstream>
 #include <chrono>
@@ -21,6 +22,7 @@ void BigTest::tableTest(){
 //  open file with data and write the data to table
     Table table;
     Test test;
+    SaveResult resultFile;
     
     int line;
     ifstream file;
@@ -35,17 +37,23 @@ void BigTest::tableTest(){
         auto end = std::chrono::system_clock::now();
         std::chrono::duration<double, std::milli> fp_ms = end - start;
         cout<<"\nTime of adding elements to table:"<<fp_ms.count()<<"ms";
+//      delete previous file and create new, with new results
+        resultFile.deleteFile();
+        resultFile.saveToFile(fp_ms.count());
         file.close();
     }
     else{
         cout<<"Failed to open and read from file!";
     }
     test.tableTest(table);
+    
 }
 void BigTest::listTest(){
 //      open file with data and write the data to list
     List list;
     Test test;
+    SaveResult resultFile;
+    
     int line;
     ifstream file;
     file.open("RandInt.txt");
@@ -58,6 +66,9 @@ void BigTest::listTest(){
         auto end = std::chrono::system_clock::now();
         std::chrono::duration<double, std::milli> fp_ms = end - start;
         cout<<"\nTime of adding elements to list:"<<fp_ms.count()<<"ms";
+        //      delete previous file and create new, with new results
+        resultFile.deleteFile();
+        resultFile.saveToFile(fp_ms.count());
         file.close();
     }
     else{
@@ -66,11 +77,13 @@ void BigTest::listTest(){
     test.listTest(list);
     
     
+    
 }
 void BigTest::heapTest(){
 
     Heap heap;
     Test test;
+    SaveResult resultFile;
     int line;
     ifstream file;
 //  open file with data and write the data to heap
@@ -85,6 +98,9 @@ void BigTest::heapTest(){
         auto end = std::chrono::system_clock::now();
         std::chrono::duration<double, std::milli> fp_ms = end - start;
         cout<<"\nTime of adding elements to heap:"<<fp_ms.count()<<"ms";
+        //      delete previous file and create new, with new results
+        resultFile.deleteFile();
+        resultFile.saveToFile(fp_ms.count());
         file.close();
     }
     else{
@@ -92,4 +108,5 @@ void BigTest::heapTest(){
     }
 //  after adding elements user can perform single operations
     test.heapTest(heap);
+    
 }

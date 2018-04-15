@@ -125,9 +125,18 @@ bool Heap::ifExist(int value){
     
 }
 void Heap::showHeap(){
-    
+    cout<<"\n";
+    int enter=1;
+    int countPrinted=0;
     for(int i=0;i<heapSize;i++){
-        cout<<"heap["<<i<<"]="<<heapPointer[i]<<"\t";   
+        cout<<heapPointer[i]<<" "; 
+        countPrinted++;
+        if(countPrinted==enter){
+            enter=enter*2;
+            cout<<"\n";
+            countPrinted=0;
+           
+        }
     }
   
    

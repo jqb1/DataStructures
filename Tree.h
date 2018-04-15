@@ -1,19 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/* 
- * File:   Tree.h
- * Author: Jakub
- *
- * Created on 31 March 2018, 14:01
- */
 
 #ifndef TREE_H
 #define TREE_H
 
+struct Node{
+    int key;
+    Node *right,*left,*parent;
+    char color;
+};
+class RBtree{
+private:
+    void rotateRight(Node *node);
+    void rotateLeft(Node *node);
+public:
+    Node *root;
+    int treeSize;
+    
+    RBtree();
+    ~RBtree();
+    
+    void insertNode(int value);
+
+    void deleteNode(int vaule);
+        
+    void search();
+    
+    void display();
+    
+    void reapaint();
+};
 
 
 #endif /* TREE_H */

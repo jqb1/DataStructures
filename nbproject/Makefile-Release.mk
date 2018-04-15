@@ -39,6 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Generator.o \
 	${OBJECTDIR}/Heap.o \
 	${OBJECTDIR}/List.o \
+	${OBJECTDIR}/SaveResult.o \
 	${OBJECTDIR}/Table.o \
 	${OBJECTDIR}/Test.o \
 	${OBJECTDIR}/Timer.o \
@@ -89,6 +90,11 @@ ${OBJECTDIR}/List.o: List.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/List.o List.cpp
+
+${OBJECTDIR}/SaveResult.o: SaveResult.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SaveResult.o SaveResult.cpp
 
 ${OBJECTDIR}/Table.o: Table.cpp
 	${MKDIR} -p ${OBJECTDIR}
