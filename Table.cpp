@@ -14,6 +14,11 @@ Table::~Table(){
         delete [] tablePointer;
     }
 }
+void Table::setTablePointer(int table[],int size){
+    delete tablePointer;
+    tablePointer=table;
+    tableSize=size;
+}
 
 void Table::addHead(int value){
     int *newTable=new int[tableSize+1]; //setting new table

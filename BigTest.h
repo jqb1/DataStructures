@@ -16,7 +16,7 @@
 class BigTest{
 public:
     
-    void tableTest();
+    void tableTest(int tableSize);
     void listTest();
     void heapTest();
     

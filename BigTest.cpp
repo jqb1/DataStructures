@@ -18,7 +18,7 @@
 using namespace std;
 
 
-void BigTest::tableTest(){
+void BigTest::tableTest(int tableSize){
 //  open file with data and write the data to table
     Table table;
     Test test;
@@ -30,15 +30,23 @@ void BigTest::tableTest(){
     if(file.is_open()){
 //      read all numbers from file and add them to new table
 //      display time of adding to structure
+        
+//      initialise first table and it's counter
+        int *newTable=new int[tableSize];
+        int index=0;
+        
         auto start = std::chrono::system_clock::now();
         while(file>>line){
-            table.addTail(line);
+//            table.addTail(line);
+            newTable[index]=line;
+            index++;
         }
+        table.setTablePointer(newTable,tableSize);
         auto end = std::chrono::system_clock::now();
         std::chrono::duration<double, std::milli> fp_ms = end - start;
         cout<<"\nTime of adding elements to table:"<<fp_ms.count()<<"ms";
 //      delete previous file and create new, with new results
-        resultFile.deleteFile();
+//        resultFile.deleteFile();
         resultFile.saveToFile(fp_ms.count());
         file.close();
     }
@@ -67,7 +75,7 @@ void BigTest::listTest(){
         std::chrono::duration<double, std::milli> fp_ms = end - start;
         cout<<"\nTime of adding elements to list:"<<fp_ms.count()<<"ms";
         //      delete previous file and create new, with new results
-        resultFile.deleteFile();
+//        resultFile.deleteFile();
         resultFile.saveToFile(fp_ms.count());
         file.close();
     }
@@ -99,7 +107,7 @@ void BigTest::heapTest(){
         std::chrono::duration<double, std::milli> fp_ms = end - start;
         cout<<"\nTime of adding elements to heap:"<<fp_ms.count()<<"ms";
         //      delete previous file and create new, with new results
-        resultFile.deleteFile();
+//        resultFile.deleteFile();
         resultFile.saveToFile(fp_ms.count());
         file.close();
     }

@@ -15,6 +15,7 @@
 #include "Test.h"
 #include "Generator.h"
 #include "BigTest.h"
+#include "SaveResult.h"
 
 
 using namespace std;
@@ -24,12 +25,17 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     
-   
+//  necessary initialisations 
     Test test;
     Generator generator;
     BigTest big_test;
+    SaveResult resultFile;
+    
     int pick=0;
     int size=0;
+    
+//  delete file with results after 
+    resultFile.deleteFile();
     cout<<"Generate file with random numbers:\n";
     cout<<"Choose size of file:";
     cin>>size;
@@ -44,7 +50,7 @@ int main(int argc, char** argv) {
     switch(pick){
         case 1:
             cout<<"table test";
-            big_test.tableTest();
+            big_test.tableTest(size);
             break;
         case 2:
             cout<<"list test";

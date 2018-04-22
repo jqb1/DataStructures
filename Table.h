@@ -21,6 +21,7 @@ public:
     Table();
     ~Table();
     
+    void setTablePointer(int table[],int size);
     void addHead(int value);
     void addTail(int value);
     void addAnywhere(int value,int index);
